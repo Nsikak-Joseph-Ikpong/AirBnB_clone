@@ -9,7 +9,7 @@ import json
 class User(BaseModel):
     '''subclass of BaseModel class'''
 
-    first_name = ""
-    last_name = ""
     email = ""
     password = ""
+    first_name = ""
+    last_name = ""

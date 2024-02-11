@@ -9,10 +9,10 @@ class Review(BaseModel):
     """
     A subclass of BaseModel class
     Public class attributes:
-        user_id:            (str) will be Place.id
-        text:             (str) will be User.id
-        place_id:                (str)
+        place_id:            (str) will be Place.id
+        user_id:             (str) will be User.id
+        text:                (str)
     """
+    place_id = ""
     user_id = ""
     text = ""
-    place_id = ""
