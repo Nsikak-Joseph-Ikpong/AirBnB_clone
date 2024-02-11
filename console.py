@@ -12,9 +12,6 @@ from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 
-# Added an additional import
-from datetime import datetime
-
 
 def parse(arg):
     curly_braces = re.search(r"\{(.*?)\}", arg)
@@ -33,8 +30,6 @@ def parse(arg):
         retl.append(curly_braces.group())
         return retl
 
-# Added a new class method and a class attribute
-
 
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter.
@@ -52,8 +47,6 @@ class HBNBCommand(cmd.Cmd):
         "Amenity",
         "Review"
     }
-    # Added a new class attribute
-    last_update = datetime.now()
 
     def emptyline(self):
         """Do nothing upon receiving an empty line."""
