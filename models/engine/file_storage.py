@@ -10,20 +10,19 @@ from models.place import Place
 from models.review import Review
 
 
-# Modified docstring to include more details about the storage engine
 class FileStorage:
-    """ This is a storage engine for the AirBnB clone project.
-    It provides methods to manage objects and their serialization.
+    """ This is a storage engine for AirBnB clone project
     Class Methods:
-        all: Returns all objects stored in the file.
-        new: Adds a new object to the storage.
-        save: Serializes objects into a JSON file.
-        reload: Deserializes objects from a JSON file.
+        all: Returns the object
+        new: updates the dictionary id
+        save: Serializes, or converts Python objects into JSON strings
+        reload: Deserializes, or converts JSON strings into Python objects.
     Class Attributes:
-        __file_path (str): The path to the JSON file.
-        __objects (dict): A dictionary of objects stored in memory.
-        class_dict (dict): A dictionary mapping class names to class types.
+        __file_path (str): The name of the file to save objects to.
+        __objects (dict): A dictionary of instantiated objects.
+        class_dict (dict): A dictionary of all the classes.
     """
+
     __file_path = 'file.json'
     __objects = {}
     class_dict = {"BaseModel": BaseModel, "User": User, "Place": Place,
@@ -32,8 +31,6 @@ class FileStorage:
 
     def all(self):
         '''Return dictionary of <class>.<id> : object instance'''
-        # Added a print statement to indicate when all objects are retrieved
-        print("Retrieving all objects from storage...")
         return self.__objects
 
     def new(self, obj):
@@ -50,8 +47,6 @@ class FileStorage:
             obj_dict[key] = obj.to_dict()
         with open(self.__file_path, 'w', encoding="UTF-8") as f:
             json.dump(obj_dict, f)
-        # Added a print statement to indicate when objects are saved
-        print("Objects saved successfully.")
 
     def reload(self):
         """Deserialize/convert obj dicts back to instances, if it exists"""
